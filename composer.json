@@ -1,0 +1,12 @@
+{
+    "name": "nicolaseden/projet-mvc",
+    "type": "project",
+    "require": {
+      "ext-pdo": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "EdenNews\\": "src/"
+        }
+    }
+}
