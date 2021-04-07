@@ -1,24 +1,23 @@
 <?php
 namespace EdenNews\Controllers;
 
+use EdenNews\Models\CategoryManager;
 use EdenNews\Validator;
 
 class HomeController {
     private Validator $validator;
 
     public function __construct() {
+        $this->category = new CategoryManager();
         $this->validator = new Validator();
     }
 
     public function index() {
+        $category = $this->category->all();
         require VIEWS . 'EdenNews/Home.php';
     }
     public function admin() {
-        $formations = $this->formationManager->getFormations();
-        $nations = $this->nationManager->getNations();
-        $formateurs = $this->formateurManager->getFormateurs();
-        $stagiaires = $this->stagiaireManager->getStagiaires();
-        $formationFinalmanager = $this->formationFinalmanager->getFinalFormation();
+        $category = $this->category->all();
         require VIEWS . 'EdenNews/Admin.php';
     }
 
