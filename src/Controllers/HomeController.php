@@ -1,6 +1,7 @@
 <?php
 namespace EdenNews\Controllers;
 
+use EdenNews\Models\ArticleManager;
 use EdenNews\Models\CategoryManager;
 use EdenNews\Validator;
 
@@ -8,12 +9,16 @@ class HomeController {
     private Validator $validator;
 
     public function __construct() {
+        $this->articles = new ArticleManager();
         $this->category = new CategoryManager();
         $this->validator = new Validator();
     }
 
     public function index() {
         $category = $this->category->all();
+        $article = $this->articles->all();
+        $mostViews = $this->articles->mostViews();
+        $hottest = $article[0];
         require VIEWS . 'EdenNews/Home.php';
     }
     public function admin() {

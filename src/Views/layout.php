@@ -23,6 +23,17 @@
     <script src="./assets/js/smoothscroll.js" defer></script>
     <script src="./assets/js/validation.js" defer></script>
     <script src="./assets/js/edennews/main.js" defer></script>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+    <script>
+        tinymce.init({
+            selector: 'textarea#editor',
+            skin: 'bootstrap',
+            plugins: 'lists, link, image, media',
+            toolbar: 'h1 h2 bold italic strikethrough blockquote bullist numlist backcolor | link image media | removeformat help',
+            menubar: false
+        });
+    </script>
 
     <title><?= $titre.' • EDEN News' ?></title>
 
