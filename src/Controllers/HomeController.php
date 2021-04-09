@@ -16,9 +16,9 @@ class HomeController {
 
     public function index() {
         $category = $this->category->all();
-        $article = $this->articles->all();
+        $articles = $this->articles->all();
         $mostViews = $this->articles->mostViews();
-        $hottest = $article[0];
+        $hottest = $this->articles->last()[0];
         require VIEWS . 'EdenNews/Home.php';
     }
     public function admin() {

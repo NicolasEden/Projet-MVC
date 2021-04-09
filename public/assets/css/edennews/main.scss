@@ -4,7 +4,7 @@
 $black: #3A3A3A;
 $white: #fff;
 $gray: #808080;
-$lightgray: #f5f5f5;
+$lightgray: #D5D5D5;
 
 header {
   margin: 20px 0 0 0;
@@ -162,4 +162,40 @@ li {
 }
 .bigpost {
   min-height: 500px;
+}
+.artcle-compact-title {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap !important;
+  div {
+    display: flex;
+    flex-direction: row;
+    margin: auto 0;
+  }
+  h1 {
+    width: auto;
+    margin: 0 25px 0 0;
+  }
+  .color {
+    height: 3px;
+    width: 150px;
+  }
+  .grey {
+    height: 3px;
+    width: 80%;
+    background-color: $lightgray;
+  }
+}
+.big-article {
+  margin: 20px 0;
+  height: 235px;
+  display: flex;
+  flex-wrap: nowrap !important;
+  .article-big-picture {
+    height: 235px;
+    width: 100%;
+    margin: 0 15px 0 15px;
+    background-position: center;
+    background-size: cover;
+  }
 }

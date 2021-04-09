@@ -18,6 +18,8 @@ class Article
     private $views;
     private $shares;
     private $comments;
+    private $category;
+    private $color;
 
     /**
      * @return mixed
@@ -113,5 +115,21 @@ class Article
     public function getComments()
     {
         return $this->comments;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getColor()
+    {
+        return $this->color;
     }
 }
