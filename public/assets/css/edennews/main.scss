@@ -66,6 +66,7 @@ header {
   border-top: SOLID $black;
   border-top-width: 2px;
   border-bottom: SOLID $black;
+  margin-left: 0 !important;
   .ul-nav {
     display: flex;
     justify-content: space-around;
@@ -141,7 +142,7 @@ li {
     font-family: "Roboto", serif;
     font-size: 14px;
     width: fit-content;
-    margin-left: 65px;
+    margin: 15px 0 0 65px;
     padding: 6px 10px;
     p {
       text-transform: uppercase;
@@ -161,12 +162,14 @@ li {
   min-height: 235px;
 }
 .bigpost {
-  min-height: 500px;
+  height: 100%;
 }
-.artcle-compact-title {
+.list-article-category {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap !important;
+  width: 100%;
+  padding: 0 15px;
   div {
     display: flex;
     flex-direction: row;
@@ -186,16 +189,19 @@ li {
     background-color: $lightgray;
   }
 }
-.big-article {
-  margin: 20px 0;
-  height: 235px;
-  display: flex;
-  flex-wrap: nowrap !important;
-  .article-big-picture {
-    height: 235px;
-    width: 100%;
-    margin: 0 15px 0 15px;
-    background-position: center;
-    background-size: cover;
+.list-article-main {
+  .list-article-part {
+    display: flex;
+    margin: 20px 0;
+    .list-article-picture {
+      height: 235px;
+      width: 40%;
+      margin: 0 15px 0 15px;
+      background-position: center;
+      background-size: cover;
+    }
+    .list-article-content {
+      width: 60%;
+    }
   }
 }

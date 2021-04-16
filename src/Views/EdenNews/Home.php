@@ -104,54 +104,60 @@ ob_start();
                     </div>
                 </div>
             </div>
-            <?php
-            foreach ($articles as $key => $Mainarticle) {
-                echo
-                    '<div class="row">
-                       <div class="col-8">
-                            <div class="row artcle-compact-title">
-                                <h1>' . $key . '</h1>
-                                <div>
-                                    <div class="color" style="background-color:#' . $Mainarticle[0]->getColor() . '"></div>
-                                    <div class="grey"></div>
-                                </div>
+            <div class="row">
+                <div class="col-8">
+                    <?php foreach ($articles as $key => $Mainarticle) { ?>
+                    <div class="row list-article-main">
+                        <div class="list-article-category">
+                            <h1><?= $key ?></h1>
+                            <div>
+                                <div class="color" style="background-color:#<?= $Mainarticle[0]->getColor() ?>"></div>
+                                <div class="grey"></div>
                             </div>
                         </div>
-                </div>';
-                foreach ($Mainarticle as $nb => $article) {
-                    if ($nb <= 4) {
-                        if ($nb === 0) {
-                            echo
-                                '<div class="row col-8 big-article">
-                                    <div class="article-big-picture" style="background-image: url(/' . $article->getImage() . ');"></div>
-                                    <div class="content post ">
+                        <?php foreach ($Mainarticle as $nb => $article) {
+                            if (($nb <= 4) && $nb === 0) { ?>
+                                <div class="list-article-part">
+                                    <div class="list-article-picture"
+                                         style="background-image: url(/<?= $article->getImage() ?>);"></div>
+                                    <div class="list-article-content post">
                                         <div class="content">
                                             <div class="text">
-                                                <h1>';
-                                                    if (strlen($article->getHeader()) > 150) echo substr($article->getHeader(), 0, 150) . '...';
-                                                    else echo $article->getHeader();
-                                                echo '</h1>
-                                                <p>';
-                                                    if (strlen($mostViews[1]->getResume()) > 500) echo substr($mostViews[1]->getResume(), 0, 500) . '...';
-                                                    else echo $mostViews[1]->getResume();
-                                                echo '</p>
+                                                <h3><?php
+                                                    if (strlen($article->getHeader()) > 75) {
+                                                        echo substr($article->getHeader(), 0, 75) . '...';
+                                                    } else {
+                                                        echo $article->getHeader();
+                                                    }
+                                                    ?>
+                                                </h3>
+                                                <p><?php
+                                                    if (strlen($mostViews[1]->getResume()) > 500) {
+                                                        echo substr($mostViews[1]->getResume(), 0, 500) . '...';
+                                                    } else {
+                                                        echo $mostViews[1]->getResume();
+                                                    }
+                                                    ?>
+                                                </p>
                                             </div>
                                             <ul class="bigpost-infos col-8">
                                                 <li><i class="fas fa-comments"></i>
-                                                    <span>' . $article->getComments() . '</span> Commentaires
+                                                    <span><?= $article->getComments() ?></span> Commentaires
                                                 </li>
                                                 <li><i class="fas fa-share-alt"></i>
-                                                    <span>' . $article->getShares() . '</span> Shares
+                                                    <span><?= $article->getShares() ?></span> Shares
                                                 </li>
                                             </ul>
                                         </div>
                                     </div>
-                            </div>';
-                        }
-                    }
-                }
-            }
-            ?>
+                                </div>
+                                <?php
+                            }
+                        }?>
+                    </div>
+                    <?php } ?>
+                </div>
+            </div>
         </div>
     </main>
 <?php

@@ -49,4 +49,15 @@ class ArticleManager
             'ORDER BY posts.timestamp ASC LIMIT 2 ');
         return $stmt->fetchAll(\PDO::FETCH_CLASS,"EdenNews\Models\Article");
     }
+    public function getArticle($id) {
+        $stmt = $this->bdd->query(
+            'SELECT posts.id, posts.views, posts.comments, posts.shares, posts.header, posts.content, posts.timestamp, posts.resume, posts.quote, file.name, file.image, file.thumb, user.firstname, category.category_name FROM posts ' .
+            'LEFT JOIN file ON posts.file_id = file.id ' .
+            'LEFT JOIN user ON posts.user_id = user.id ' .
+            'LEFT JOIN category ON posts.category_id = category.id ' .
+            'WHERE posts.id = "'.$id.'"');
+        $article = $stmt->fetchAll(\PDO::FETCH_CLASS,"EdenNews\Models\Article");
+        $article = $article[0];
+        return $article;
+    }
 }

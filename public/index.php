@@ -10,8 +10,10 @@ require SRC . 'helper.php';
 
 $router = new EdenNews\Router($_SERVER["REQUEST_URI"]);
 $router->get('/', "HomeController@index");
-$router->get('/login', "UserController@showLogin");
-$router->get('/register', "UserController@showRegister");
+$router->get('/auth', "AuthController@authIndex");
+$router->get('/articles', "ArticleController@show");
+$router->post('/authLogin', "AuthController@loginUser");
+$router->post('/authRegister', "AuthController@registUser");
 
 // Système d'API en POST
 
