@@ -6,19 +6,19 @@ $white: #fff;
 $gray: #808080;
 $lightgray: #D5D5D5;
 
-header {
+header { // SCCS Concernant l'header
   margin: 20px 0 0 0;
   text-transform: uppercase;
   color: $gray;
   font-size: 16px;
   padding: 10px 0 0 0;
   font-family: Roboto, serif;
-  .underline-black {
+  .underline-black { // Soulignement en noir
     padding: 0 0 15px 0;
     border-bottom: SOLID;
     border-bottom-color: $black;
   }
-  .underline-lightgrey {
+  .underline-lightgrey { // Soulignement en gris claire
     padding: 0 0 15px 0;
     border-bottom: SOLID;
     border-bottom-color: $lightgray;
@@ -30,7 +30,7 @@ header {
     margin: -10px 0 25px 0;
   }
 }
-#todayDate {
+#todayDate { // Style de la date
   margin: 0 0 15px 0;
 }
 .d-flex {
@@ -62,11 +62,12 @@ header {
 .search {
   margin: 0 25px 0 0;
 }
-.header-nav-div {
+.header-nav-div { // SCCS Concernant la navbar
   border-top: SOLID $black;
   border-top-width: 2px;
   border-bottom: SOLID $black;
   margin-left: 0 !important;
+  margin-right: 0 !important;
   .ul-nav {
     display: flex;
     justify-content: space-around;
@@ -85,6 +86,10 @@ header {
 li {
   list-style: none;
 }
+
+
+// SCCS Concernant la première partie d'article
+
 .first-line {
   margin: 35px 0;
 }
@@ -133,9 +138,13 @@ li {
       color: $black;
       font-weight: 700;
     }
+    li {
+      margin-top: 10px;
+    }
     font-size: 14px;
     padding: 0;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
   }
   .postcomment {
@@ -152,14 +161,18 @@ li {
     }
   }
 }
+// SCCS Concernant la deuxième partie d'article
 .medium-right-articles {
   display: flex;
   justify-content: space-between !important;
   flex-direction: column;
-  min-height: 500px;
+  min-height: 700px;
 }
 .mediumpost {
-  min-height: 235px;
+  min-height: 325px;
+  h1 {
+    font-size: 30px;
+  }
 }
 .bigpost {
   height: 100%;
@@ -189,12 +202,24 @@ li {
     background-color: $lightgray;
   }
 }
+@media screen and (max-width: 750px) {
+  .list-article-part {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .bigpost-infos {
+    justify-content: center;
+  }
+}
 .list-article-main {
   .list-article-part {
     display: flex;
-    margin: 20px 0;
+    margin: 20px 0 ;
+    list-article-part {
+      width: 100%;
+    }
     .list-article-picture {
-      height: 235px;
+      height: auto;
       width: 40%;
       margin: 0 15px 0 15px;
       background-position: center;
@@ -204,4 +229,8 @@ li {
       width: 60%;
     }
   }
+}
+a {
+  color: black !important;
+  text-decoration: none !important;
 }

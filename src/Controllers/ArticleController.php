@@ -16,6 +16,7 @@ class ArticleController
     public function show() {
         if (isset($_GET["id"])) {
             $article = $this->users->getArticle($_GET["id"]);
+            require VIEWS . 'EdenNews/Article.php';
         } else {
             header("Location: /");
         }
